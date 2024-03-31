@@ -712,11 +712,6 @@ img, video {
     color: #fff;
 }
 
-.selected {
-    background-color: #007bff;
-    color: #fff;
-}
-
 .legend {
     margin: 10px 0px;
 }
@@ -747,6 +742,37 @@ img, video {
 
 .legend-text {
     font-size: 14px;
+}
+
+.seat-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    font-size: larger;
+    display: inline-block;
+    margin: 2px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+
+.Relax {
+    background-color: #00C599A0; /* зеленый цвет для мест первого класса */
+    border: 3px solid  #00C599A0;
+}
+
+.Classic {
+    background-color: #009b4e; /* желтый цвет для мест бизнес-класса */
+    border: 3px solid  #009b4e;;
+}
+
+.booked {
+    background-color: transparent; /* серый цвет для забронированных мест */
+}
+
+.selected {
+    background-color: #eb3126; /* красный цвет для мест эконом-класса */
 }
 
 @media (min-width: 640px) {

@@ -18,15 +18,23 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('types', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->timestamps();
+        });
+
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('row_id');
+            $table->unsignedBigInteger('type_id');
             $table->integer('seat_number');
             $table->boolean('is_booked')->default(false);
             $table->timestamps();
 
             // Добавляем внешний ключ
             $table->foreign('row_id')->references('id')->on('rows');
+            $table->foreign('type_id')->references('id')->on('types');
 
             // Если вам нужен еще и уникальный индекс для номера ряда и места
             $table->unique(['row_id', 'seat_number'], 'unique_row_seat');
@@ -42,5 +50,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('cinema_seats');
         Schema::dropIfExists('rows');
+        Schema::dropIfExists('types');
     }
 };

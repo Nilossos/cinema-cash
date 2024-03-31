@@ -13,4 +13,8 @@ class Seat extends Model
     {
         return $this->belongsTo(Row::class);
     }
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }

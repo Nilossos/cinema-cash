@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    const seatElements = document.querySelectorAll('.seat');
+    const seatElements = document.querySelectorAll('table .seat-circle');
     seatElements.forEach(function (seatElement) {
         seatElement.addEventListener('click', handleSeatClick);
     });

@@ -12,16 +12,30 @@
                             <h2 class="text-xl font-semibold text-black dark:text-white">Бронирование мест</h2>
                             <div class="legend">
                                 <div class="legend-item">
-                                    <div class="legend-color red"></div>
-                                    <div class="legend-text"> - Забронированные места;</div>
+                                    @foreach($types as $type)
+                                        <div class="legend-item">
+                                            <div class="seat-circle {{ $type->title }}">
+                                                1
+                                            </div>
+                                            - {{ $type->title }};
+                                        </div>
+                                    @endforeach
                                 </div>
                                 <div class="legend-item">
-                                    <div class="legend-color blue"></div>
-                                    <div class="legend-text"> - Выбранные места;</div>
+                                    <div class="legend-item">
+                                        <div class="seat-circle selected">
+                                            1
+                                        </div>
+                                        - Выбранное место;
+                                    </div>
                                 </div>
                                 <div class="legend-item">
-                                    <div class="legend-color black"></div>
-                                    <div class="legend-text"> - Свободные места;</div>
+                                    <div class="legend-item">
+                                        <div class="seat-circle Classic booked">
+                                            1
+                                        </div>
+                                        - Забронированное место;
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -33,14 +47,20 @@
                                         <tr>
                                             <th>Ряд {{ $row->row_number }}</th>
                                             @foreach ($row->seats as $seat)
-                                                <td class="seat {{ $seat->is_booked ? "booked" : "" }}"
-                                                    data-seat-number="{{ $seat->id }}" data-is-booked="{{ $seat->is_booked }}">{{ $seat->seat_number }}</td>
+                                                <td>
+                                                    <div
+                                                        class="seat-circle {{ $seat->type->title }} {{ $seat->is_booked ? "booked" : "" }}"
+                                                        data-seat-number="{{ $seat->id }}"
+                                                        data-is-booked="{{ $seat->is_booked }}">
+                                                        {{$seat->seat_number}}
+                                                    </div>
+                                                </td>
                                             @endforeach
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <button id="book-seats-btn">Выбрать места</button>
+                                <button id="book-seats-btn">Забронировать места</button>
                                 <button id="release-seats-btn">Освободить места</button>
                             </div>
                         </div>
