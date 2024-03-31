@@ -27,8 +27,6 @@
                         </div>
                         <div class="pt-3 sm:pt-5 lg:pt-0">
                             <div class="container">
-                                <h1>Cinema Seats</h1>
-
                                 <table class="table">
                                     <tbody>
                                     @foreach ($rows as $row)
@@ -36,13 +34,14 @@
                                             <th>Ряд {{ $row->row_number }}</th>
                                             @foreach ($row->seats as $seat)
                                                 <td class="seat {{ $seat->is_booked ? "booked" : "" }}"
-                                                    data-seat-number="{{ $seat->id }}">{{ $seat->seat_number }}</td>
+                                                    data-seat-number="{{ $seat->id }}" data-is-booked="{{ $seat->is_booked }}">{{ $seat->seat_number }}</td>
                                             @endforeach
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <button id="select-seats-btn">Выбрать места</button>
+                                <button id="book-seats-btn">Выбрать места</button>
+                                <button id="release-seats-btn">Освободить места</button>
                             </div>
                         </div>
                     </div>

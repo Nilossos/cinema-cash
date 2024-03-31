@@ -5,3 +5,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CinemaController::class, 'show'])->name("home");
 Route::post('/book-seats', [CinemaController::class, 'book']);
+Route::post('/release-seats', [CinemaController::class, 'release']);

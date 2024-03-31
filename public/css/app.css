@@ -46,7 +46,17 @@ a {
     text-decoration: inherit
 }
 
-#select-seats-btn {
+#book-seats-btn {
+    margin-left: 50px;
+    margin-top: 20px;
+    background-color: rgba(160, 0, 0, 0.89);
+    border: 2px solid black;
+    color: white;
+    padding: 5px;
+}
+#release-seats-btn {
+    margin-left: 20px;
+    margin-top: 20px;
     background-color: rgba(160, 0, 0, 0.89);
     border: 2px solid black;
     color: white;
@@ -697,15 +707,14 @@ img, video {
     cursor: pointer; /* Изменение курсора при наведении для обозначения кликабельности */
 }
 
-/* Определяем стиль для выбранных мест */
-.selected {
-    background-color: #007bff; /* Цвет фона для выбранных мест */
-    color: #fff; /* Цвет текста для выбранных мест */
+.booked {
+    background-color: rgba(160, 0, 0, 0.89);
+    color: #fff;
 }
 
-.booked {
-    background-color: rgba(160, 0, 0, 0.89); /* Цвет фона для выбранных мест */
-    color: #fff; /* Цвет текста для выбранных мест */
+.selected {
+    background-color: #007bff;
+    color: #fff;
 }
 
 .legend {
